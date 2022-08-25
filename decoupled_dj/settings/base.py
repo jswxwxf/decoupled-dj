@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',  # enables DRF
     'user.apps.UserConfig',
     'billing.apps.BillingConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
