@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 
-const BASE_URL = "http://localhost:8000/blog/api";
+const BASE_URL = "http://127.0.0.1:8000/blog/api";
 
 // export const getStaticPaths: GetStaticPaths = async (_) => {
 //   const res = await fetch(`${BASE_URL}/posts/`);
