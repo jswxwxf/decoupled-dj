@@ -1,15 +1,15 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 
 const BASE_URL = "http://127.0.0.1:8000/blog/api";
 
-// export const getStaticPaths: GetStaticPaths = async (_) => {
-//   const res = await fetch(`${BASE_URL}/posts/`);
-//   const json: BlogPost[] = await res.json();
-//   const paths = json.map((post) => ({ params: { id: String(post.id) } }));
-//   return { paths, fallback: false };
-// };
+export const getStaticPaths: GetStaticPaths = async (_) => {
+  const res = await fetch(`${BASE_URL}/posts/`);
+  const json: BlogPost[] = await res.json();
+  const paths = json.map((post) => ({ params: { id: String(post.id) } }));
+  return { paths, fallback: false };
+};
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id;
   const res = await fetch(`${BASE_URL}/posts/${id}`);
   if (!res.ok) {
@@ -21,6 +21,19 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   return { props: { title, body, created_at, status } };
 };
+
+// export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+//   const id = params?.id;
+//   const res = await fetch(`${BASE_URL}/posts/${id}`);
+//   if (!res.ok) {
+//     return { notFound: true };
+//   }
+
+//   const json: BlogPost = await res.json();
+//   const { title, body, created_at, status } = json;
+
+//   return { props: { title, body, created_at, status } };
+// };
 
 enum BlogPostStatus {
   Published = "PUBLISHED",
