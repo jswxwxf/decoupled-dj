@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",  # enables DRF
+    "ariadne_django",
     "user.apps.UserConfig",
     "billing.apps.BillingConfig",
     "blog.apps.BlogConfig",
