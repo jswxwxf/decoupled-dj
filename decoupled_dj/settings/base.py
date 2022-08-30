@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",  # enables DRF
     "ariadne_django",
+    "strawberry.django",
     "user.apps.UserConfig",
     "billing.apps.BillingConfig",
     "blog.apps.BlogConfig",

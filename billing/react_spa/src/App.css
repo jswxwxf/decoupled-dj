@@ -1,6 +1,13 @@
 .App {
   padding: 50px;
-  text-align: center;
+}
+
+.App > form div {
+  margin: 20px 0;
+}
+
+.App > form label {
+  padding-right: 10px;
 }
 
 .App-logo {
